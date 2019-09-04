@@ -1,0 +1,21 @@
+p, h1{
+    color: rgb(20, 181, 230);
+    background-color: green;
+}
+
+#mip {
+    color: blue;
+}
+
+body {
+    height:2000px ;
+    background-image: url("../img/descarga.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/*getElementById
+getElementsByClassName
+getElementsByTagName
+querySelectorAll("#mip")*/
