@@ -1,0 +1,47 @@
+/* Cambiar todo esto */
+.input
+{
+    margin: 10px 0px;
+    font-size: 20px;
+}
+
+.input input{
+    display: inline-block;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.inputNumber input{
+    display: inline-block;
+    border-radius: 5px;
+    width: 150px;
+}
+
+label{
+    display: inline-block;
+    clear: left;
+    width: 320px;
+    text-align: left;
+}
+
+.botonAnuncio{
+    margin: 10px 0px;
+    font-size: 30px;
+    width: 150px;
+    background-color: #00ace6;
+    color: white;
+}
+.fondo{
+    background-image: url("../img/casa-nueva.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.letra{
+    color: white;
+    font-size: 30px;
+}
+
+.contenedor{
+    margin: 25px
+}

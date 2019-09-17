@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <script src="./js/script.js"></script>
+    <title>Nuevo Anuncio</title>
+</head>
+
+<body class="fondo">
+    <div class="contenedor">
+        <form>
+            <fieldset>
+                <legend class="letra">Crear Anuncio</legend>
+
+                <div class="input">
+                    <label class="letra" for="titulo">Titulo</label>
+                    <input placeholder="Titulo" type="text" name="titulo" required></input>
+                </div>
+                <div class="input">
+                    <label class="letra" for="descripcion">Descripcion</label>
+                    <input placeholder="Descripcion" type="text" name="descripcion" required></input>
+                </div>
+                <!--Alquiler o venta-->
+                <div class="input inputNumber">
+                    <label class="letra" for="precio">Precio</label>
+                    <input type="number" name="precio" value="0" required>
+                </div>
+                <div class="input inputNumber">
+                    <label class="letra" for="banos">Baños</label>
+                    <input type="number" name="banos" min="1" max="9" value="1"></input>
+                </div>
+                <div class="input inputNumber">
+                    <label class="letra" for="dormitorios">Dormitorios</label>
+                    <input type="number" name="dormitorios" min="1" max="9" value="1"></input>
+                </div>
+                <div class="input inputNumber">
+                    <label class="letra" for="cocheras">Cocheras</label>
+                    <input type="number" name="cocheras" min="1" max="9" value="1"></input>
+                </div>
+            </fieldset>
+            <input type="button" value="Enviar" class="botonAnuncio" id="btnAltaAnuncio">
+        </form>
+    </div>
+</body>
+</html>
