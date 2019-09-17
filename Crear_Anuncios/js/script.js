@@ -1,16 +1,17 @@
-var arrayDeAnuncios = [];
-var anuncio = {};
-var btnAltaAnuncio;
+let frm;
+let arrayDeAnuncios = [];
+let anuncio = {};
 
-window.addEventListener('load', function(){
-    btnAltaAnuncio = document.getElementById('btnAltaAnuncio');
-    btnAltaAnuncio.addEventListener('click', altaBoton);
-});
+window.addEventListener('load', inicializarManejadores);
 
-altaBoton = function(e) {
-    //console.log(e);
-    //e.preventDefault();
-    //porque no hace nada con esto comentado ?
+function inicializarManejadores() {
+    frm = document.forms[0];
+    frm.addEventListener('submit', manejadorSubmit);
+}
+
+ function manejadorSubmit(e) {
+    e.preventDefault();
+    //crear el js de anuncio y hacer un new Anuncio()
     anuncio = {
         nombre : document.getElementsByName("titulo")[0].value,
         descripcion: document.getElementsByName("descripcion")[0].value,
@@ -19,7 +20,6 @@ altaBoton = function(e) {
         cantidadDormitorios: document.getElementsByName("dormitorios")[0].value,
         cantidadCocheras: document.getElementsByName("cocheras")[0].value
     }
-    
     arrayDeAnuncios.push(anuncio);
     console.log(JSON.stringify(arrayDeAnuncios));
 }

@@ -31,11 +31,6 @@ label{
     background-color: #00ace6;
     color: white;
 }
-.fondo{
-    background-image: url("../img/casa-nueva.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
 
 .letra{
     color: white;
@@ -45,3 +40,9 @@ label{
 .contenedor{
     margin: 25px
 }
+
+/*.fondo{
+    background-image: url("../img/casa-nueva.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}*/
