@@ -10,7 +10,9 @@ function inicializarManejadores() {
 function manejadorSubmit(e) {
     e.preventDefault();
     let nuevaMascota = obtenerMascota(e.target);
-    console.log(nuevaMascota);
+    //console.log(nuevaMascota);
+    mascotas.push(nuevaMascota);
+    console.log(mascotas);
 }
 
 function obtenerMascota(frm) {
