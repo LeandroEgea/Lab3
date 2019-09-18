@@ -10,9 +10,9 @@ function inicializarManejadores() {
 function manejadorSubmit(e) {
     e.preventDefault();
     let nuevaMascota = obtenerMascota(e.target);
-    //console.log(nuevaMascota);
     mascotas.push(nuevaMascota);
-    console.log(mascotas);
+    document.getElementById("divTabla").innerHTML = "";
+    document.getElementById("divTabla").appendChild(crearTabla(mascotas));
 }
 
 function obtenerMascota(frm) {

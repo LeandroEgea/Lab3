@@ -13,6 +13,3 @@ function Mascota(nombre, edad, tipo, castrado, vacunado, desparasitado, alimento
         return `Hola soy ${ this.nombre } y tengo ${ this.edad } años`;
     }
 }
-
-let m1 = new Mascota("Ayudante de Santa", 5, "Perro", false, false, false, "carne");
-console.log(m1.toString());
