@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
     <script src="./js/tableHelper.js"></script>
     <script src="./js/mascota.js"></script>
     <script src="./js/script.js"></script>
@@ -12,17 +14,23 @@
 </head>
 
 <body>
-    <form action="#" style="width: 300px">
+    <form action="#">
         <fieldset>
             <legend>Datos de la Mascota</legend>
             <table>
                 <tr>
-                    <td><label for="txtNombre">Nombre:</label> </td>
-                    <td><input type="text" id="txtNombre" name="nombre"> </td>
+                    <td>
+                        <label for="txtNombre">Nombre:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="txtNombre" name="nombre"> </td>
                 </tr>
                 <tr>
-                    <td><label for="txtEdad">Edad:</label> </td>
-                    <td><input type="text" id="txtEdad" name="edad"> </td>
+                    <td>
+                        <label for="txtEdad">Edad:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="txtEdad" name="edad"> </td>
                 </tr>
             </table>
 
@@ -30,16 +38,28 @@
                 <legend>Tipo</legend>
                 <table>
                     <tr>
-                        <td><label for="rdoPerro">Perro</label> </td>
-                        <td><input type="radio" id="rdoPerro" name="tipo" value="perro" checked></td>
+                        <td>
+                            <label for="rdoPerro">Perro</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="rdoPerro" name="tipo" value="perro" checked>
+                        </td>
                     </tr>
                     <tr>
-                        <td><label for="rdoGato">Gato</label> </td>
-                        <td><input type="radio" id="rdoGato" name="tipo" value="gato"></td>
+                        <td>
+                            <label for="rdoGato">Gato</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="rdoGato" name="tipo" value="gato">
+                        </td>
                     </tr>
                     <tr>
-                        <td><label for="rdoRoedor">Roedor</label> </td>
-                        <td><input type="radio" id="rdoRoedor" name="tipo" value="roedor"></td>
+                        <td>
+                            <label for="rdoRoedor">Roedor</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="rdoRoedor" name="tipo" value="roedor">
+                        </td>
 
                     </tr>
                 </table>
@@ -48,16 +68,28 @@
                 <legend>Estado</legend>
                 <table>
                     <tr>
-                        <td><label for="chkCastrado">Castrado</label> </td>
-                        <td><input type="checkbox" id="chkCastrado" name="castrado"></td>
+                        <td>
+                            <label for="chkCastrado">Castrado</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="chkCastrado" name="castrado">
+                        </td>
                     </tr>
                     <tr>
-                        <td><label for="chkVacunas">Vacunado</label> </td>
-                        <td><input type="checkbox" id="chkVacunas" name="vacunado"></td>
+                        <td>
+                            <label for="chkVacunas">Vacunado</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="chkVacunas" name="vacunado">
+                        </td>
                     </tr>
                     <tr>
-                        <td><label for="chkDesparasitado">Desparasitado</label> </td>
-                        <td><input type="checkbox" id="chkDesparasitado" name="desparasitado"></td>
+                        <td>
+                            <label for="chkDesparasitado">Desparasitado</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="chkDesparasitado" name="desparasitado">
+                        </td>
                     </tr>
                 </table>
             </fieldset>
@@ -80,11 +112,11 @@
             </fieldset>
         </fieldset>
         <input type="submit" value="Alta Mascota">
-
-        <div id="divTabla">
-
         </div>
     </form>
+    <div id="divTabla">
+
+    </div>
 </body>
 
 </html>

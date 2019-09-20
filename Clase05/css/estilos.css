@@ -1,0 +1,18 @@
+form {
+    width: 300px;
+}
+
+.tabla {
+    border-collapse: collapse;
+    width: 700px;
+}
+
+.tabla,
+.tabla th,
+.tabla td {
+    border: 1px solid black;
+}
+
+.tabla td {
+    text-align: center;
+}
