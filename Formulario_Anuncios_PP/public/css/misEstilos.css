@@ -1,0 +1,65 @@
+/* FORMULARIO */
+
+
+/* body {
+    background-color: #e8a87c;
+    font-family: 'Courier New', Courier, monospace;
+} */
+
+form {
+    margin: 20px auto;
+    width: 500px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario>* {
+    margin: 1.5px 0;
+}
+
+.divRadios {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.divRadios>div {
+    display: flex;
+    align-items: center;
+}
+
+.divRadios>div>input {
+    margin-left: 3px;
+}
+
+#btnCrearModificar {
+    margin-top: 20px;
+}
+
+
+/* TABLA */
+
+.tabla {
+    margin: auto;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    width: 700px;
+}
+
+.tabla,
+.tabla th,
+.tabla td {
+    border: 1px solid black;
+}
+
+.tabla td {
+    text-align: center;
+}
+
+#divTabla {
+    display: flex;
+    place-content: center;
+}
