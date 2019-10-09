@@ -1,0 +1,30 @@
+#divTabla{
+    display: flex;
+    justify-content: center;
+}
+
+.tabla {
+    margin: auto;
+    border-collapse: collapse;
+    width: 800px;
+}
+
+.tabla,
+.tabla th,
+.tabla td{
+    border: 1px solid black;
+}
+
+.tabla td{
+    text-align: center;
+}
+
+form{
+    margin: auto;
+    width: 600px;
+}
+
+.contenidoForm {
+    display: flex;
+    flex-direction: column;
+}

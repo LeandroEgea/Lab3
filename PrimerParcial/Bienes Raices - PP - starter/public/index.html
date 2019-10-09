@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/tableHelper.js"></script>
+    <script src="./js/anuncio.js"></script>
+    <script src="./js/index.js"></script>
+    <title>Bienes Raices</title>
+</head>
+<body>
+    <form action="#">
+        <fieldset>
+            <legend>Nuevo Anuncio</legend>
+
+            <div class="contenidoForm">
+                <label id="lblId" for="id" hidden>Id</label>
+                <input type="text" id ="id" name="id" hidden disabled>
+
+                <label for="titulo">Titulo</label>
+                <input placeholder="titulo" type="text" id ="titulo" name="titulo" required>
+
+                <div class="radios">
+                    <div>
+                        <label for="venta">Venta</label>
+                        <input type="radio" id ="venta" name="transaccion" value="Venta" checked>
+                    </div>
+                    <div>
+                        <label for="alquiler">Alquiler</label>
+                        <input type="radio" id ="alquiler" name="transaccion" value="Alquiler">
+                    </div>
+                </div>
+
+                <label for="descripcion">Descripcion</label>
+                <input placeholder="descripcion" type="text" id ="descripcion" name="descripcion" required>
+
+                <label for="precio">Precio</label>
+                <input type="text" id ="precio" name="precio" value="0" required>
+
+                <label for="num_wc">Baños</label>
+                <input type="number" id ="num_wc" name="num_wc" min="1" max="20" value="1" required>
+                
+                <label for="num_estacionamiento">Estacionamientos</label>
+                <input type="number" id ="num_estacionamiento" name="num_estacionamiento" min="1" max="20" value="1" required>
+                
+                <label for="num_dormitorio">Dormitorios</label>
+                <input type="number" id ="num_dormitorio" name="num_dormitorio" min="1" max="20" value="1" required>
+            
+                <button type="submit" id="btnCrearModificar">Crear</button>
+                <button type="button" id="btnBorrar" hidden>Borrar</button>
+                <button type="button" id="btnLimpiar" hidden>Limpiar</button>
+            </div>
+        </fieldset>
+    </form>
+    <div id="divTabla">
+    </div>
+</body>
+</html>
