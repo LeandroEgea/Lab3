@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/misEstilos.css">
+    <script src="./js/tableHelper.js"></script>
+    <script src="./js/anuncio.js"></script>
+    <script src="./js/index.js"></script>
+    <title>Nuevo Anuncio</title>
+</head>
+
+<body>
+    <form action="#">
+        <fieldset>
+            <legend>Crear Anuncio</legend>
+
+            <div class="formulario">
+
+                <label id="lblId" for="idAnuncio" hidden>Id</label>
+                <input type="text" id="idAnuncio" name="idAnuncio" hidden disabled>
+
+                <label for="titulo">Titulo</label>
+                <input placeholder="Titulo" type="text" id="titulo" name="titulo" required>
+
+                <label for="descripcion">Descripcion</label>
+                <input placeholder="Descripcion" type="text" id="descripcion" name="descripcion" required>
+
+                <div class="divRadios">
+                    <div>
+                        <label for="venta">Venta</label>
+                        <input type="radio" name="tipo" id="venta" value="Venta" checked>
+                    </div>
+                    <div>
+                        <label for="alquiler">Alquiler</label>
+                        <input type="radio" name="tipo" id="alquiler" value="Alquiler">
+                    </div>
+                </div>
+
+                <label for="precio">Precio</label>
+                <input type="text" id="precio" name="precio" value="0" required>
+
+                <label for="banos">Baños</label>
+                <input type="text" id="banos" name="banos" min="1" max="9" value="1">
+
+                <label for="dormitorios">Dormitorios</label>
+                <input type="number" id="dormitorios" name="dormitorios" min="1" max="9" value="1">
+
+                <label for="cocheras">Cocheras</label>
+                <input type="number" id="cocheras" name="cocheras" min="1" max="9" value="1">
+
+                <button type="submit" id="btnCrearModificar">Enviar</button>
+                <button type="button" id="btnBorrar" hidden>Borrar</button>
+                <button type="button" id="btnLimpiar" hidden>Limpiar</button>
+            </div>
+        </fieldset>
+    </form>
+    <div id="divTabla">
+
+    </div>
+</body>
+
+</html>
