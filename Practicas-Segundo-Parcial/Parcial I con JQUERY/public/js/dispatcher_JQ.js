@@ -1,3 +1,16 @@
+function modificarAnuncio(nuevoAnuncio, arrayAnuncios) {
+    arrayAnuncios.push(nuevoAnuncio);
+    localStorage.setItem("Anuncios", JSON.stringify(arrayAnuncios));
+    cargarGrilla(arrayAnuncios);
+}
+
+
+
+
+
+
+
+/*
 function cargarDatos(manejador) {
     datos = [];
     $.getJSON("http://localhost:3000/traerAnuncios", function(resp, status) {
@@ -19,24 +32,7 @@ function altaDatos(objeto, array) {
 
 
 
-function modificarAnuncio(nuevoAnuncio) {
-    var xhr = new XMLHttpRequest();
-    let tabla = document.getElementById("divTabla");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            tabla.innerText = "";
-            cargarDatos();
-        } else {
-            tabla.innerHTML = "<img src='./img/831.gif' alt='spinner'>";
-        }
 
-    };
-    //Envio la peticion get
-    var url = "http://localhost:3000/modificarAnuncio";
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader('Content-type', 'Application/json');
-    xhr.send(JSON.stringify(nuevoAnuncio));
-}
 
 function borrarAnuncio() {
     var xhr = new XMLHttpRequest();
@@ -57,3 +53,4 @@ function borrarAnuncio() {
     xhr.setRequestHeader('Content-type', 'Application/x-www-form-urlencoded');
     xhr.send(obtenerId(frm));
 }
+*/
