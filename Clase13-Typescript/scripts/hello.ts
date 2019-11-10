@@ -1,4 +1,3 @@
-///  <reference path="bye.ts"/>
 let mensaje:string;
 mensaje = 'Hola mundos';
 console.log(mensaje);

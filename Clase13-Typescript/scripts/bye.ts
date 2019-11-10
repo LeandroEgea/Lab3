@@ -1,4 +1,4 @@
-///  <reference path="hello.ts"/>
+///  <reference path="other.ts"/>
 
 let mens:string;
 mens = 'Chau Mundoss';

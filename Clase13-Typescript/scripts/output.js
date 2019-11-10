@@ -1,5 +1,4 @@
 "use strict";
-///  <reference path="bye.ts"/>
 var mensaje;
 mensaje = 'Hola mundos';
 console.log(mensaje);
@@ -28,12 +27,11 @@ var funcionEnviarMision = function (heroe /*="Spiderman"*/) {
 var retorno = funcionEnviarMision("Spiderman");
 console.log(retorno);
 ///  <reference path="hello.ts"/>
-var mens;
-mens = 'Chau Mundoss';
-console.log(mens);
-///  <reference path="hello.ts"/>
-///  <reference path="bye.ts"/>
 var mensaj;
 mensaj = 'Others';
 console.log(mensaj);
+///  <reference path="other.ts"/>
+var mens;
+mens = 'Chau Mundoss';
+console.log(mens);
 //# sourceMappingURL=output.js.map
