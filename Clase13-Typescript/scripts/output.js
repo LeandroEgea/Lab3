@@ -31,4 +31,9 @@ console.log(retorno);
 var mens;
 mens = 'Chau Mundoss';
 console.log(mens);
+///  <reference path="hello.ts"/>
+///  <reference path="bye.ts"/>
+var mensaj;
+mensaj = 'Others';
+console.log(mensaj);
 //# sourceMappingURL=output.js.map
