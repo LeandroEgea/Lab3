@@ -57,7 +57,7 @@ console.log(flash.poderes);
 type Heroe = {nombre:string,edad:number,poderes?:string[], getNombre:()=>string};
 
 let ironman:Heroe = {
-    nombre: "Tony Stark",
+    nombre: "Antonio Stark",
     edad:24,
     getNombre:function(){return this.nombre;}
 }
@@ -69,3 +69,27 @@ interface IHeroe{
     poder?:string,
     mostrar?():string
 }
+let lobezno:IHeroe = {
+    nombre: "Jaime"
+}
+console.log(lobezno.nombre);
+
+//Impl
+class Avenger implements IHeroe{
+    nombre:string = "vengador"
+}
+class Mutant implements IHeroe{
+    nombre:string = "mutante"
+}
+let unAvenger = new Avenger();
+let unMutante = new Mutant();
+console.log(unAvenger.nombre);
+console.log(unMutante.nombre);
+
+//interfaz en funcion
+interface IfuncDosNumeros{
+    (num1:number,num2:number):number;
+}
+let miFuncion:IfuncDosNumeros;
+miFuncion = (num1:number,num2:number)=>num1+num2;
+console.log(miFuncion(1,2));

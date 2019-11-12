@@ -54,11 +54,35 @@ var flash = {
 };
 console.log(flash.poderes);
 var ironman = {
-    nombre: "Tony Stark",
+    nombre: "Antonio Stark",
     edad: 24,
     getNombre: function () { return this.nombre; }
 };
 console.log(ironman.getNombre());
+var lobezno = {
+    nombre: "Jaime"
+};
+console.log(lobezno.nombre);
+//Impl
+var Avenger = /** @class */ (function () {
+    function Avenger() {
+        this.nombre = "vengador";
+    }
+    return Avenger;
+}());
+var Mutant = /** @class */ (function () {
+    function Mutant() {
+        this.nombre = "mutante";
+    }
+    return Mutant;
+}());
+var unAvenger = new Avenger();
+var unMutante = new Mutant();
+console.log(unAvenger.nombre);
+console.log(unMutante.nombre);
+var miFuncion;
+miFuncion = function (num1, num2) { return num1 + num2; };
+console.log(miFuncion(1, 2));
 ///  <reference path="hello.ts"/>
 var mensaj;
 mensaj = 'Others';
