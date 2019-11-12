@@ -21,11 +21,44 @@ for (var key in Eheroe) {
     console.log(key);
 }
 //Funciones                                 Esto indica un parametro por defecto
-var funcionEnviarMision = function (heroe /*="Spiderman"*/) {
-    return heroe + " enviado";
+var funcionEnviarMision1 = function (heroe /*="Spiderman"*/) {
+    return heroe + " enviado a Mision 1";
 };
-var retorno = funcionEnviarMision("Spiderman");
+var retorno = funcionEnviarMision1("Spiderman");
 console.log(retorno);
+//Parametros REST
+var funcionEnviarMision2 = function () {
+    var heroes = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        heroes[_i] = arguments[_i];
+    }
+    for (var i = 0; i < heroes.length; i++) {
+        console.log(heroes[i] + " enviado a Mision 2");
+    }
+};
+funcionEnviarMision2("Spiderman", "Hulk");
+//funcion flecha
+var funcionEnviarMision3 = function (heroe) {
+    if (heroe === void 0) { heroe = "black widow"; }
+    return heroe + " enviado a la Mision 3";
+};
+console.log(funcionEnviarMision3());
+//tipo en el objeto
+var flash = {
+    nombre: "Barry Allen",
+    edad: 24,
+    poderes: ["corre", "viaja en el tiempo"],
+    getNombre: function () {
+        return this.nombre;
+    }
+};
+console.log(flash.poderes);
+var ironman = {
+    nombre: "Tony Stark",
+    edad: 24,
+    getNombre: function () { return this.nombre; }
+};
+console.log(ironman.getNombre());
 ///  <reference path="hello.ts"/>
 var mensaj;
 mensaj = 'Others';
