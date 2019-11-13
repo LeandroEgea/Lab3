@@ -93,3 +93,55 @@ interface IfuncDosNumeros{
 let miFuncion:IfuncDosNumeros;
 miFuncion = (num1:number,num2:number)=>num1+num2;
 console.log(miFuncion(1,2));
+
+//clases
+class Avenger2 implements IHeroe{
+    nombre:string;
+
+    constructor(nombre:string){
+        this.nombre = nombre;
+    }
+}
+let av2 = new Avenger2("Hulk");
+console.log("Clase: "+ av2.nombre);
+
+//Clase atrib privado
+class Avenger3{
+    private _nombre:string;
+    private _edad:number = 0;
+    constructor(nombre:string){
+        this._nombre = nombre
+    }
+    get edad():number{return this._edad;}
+    set edad(e:number){this._edad = e;}
+
+    public mostrar = ()=>this._nombre;
+}
+let av3 = new Avenger3("Iron Man");
+console.log("Clases 2: " + av3.mostrar());
+av3.edad = 35;
+console.log("Clases 2: " + av3.edad);
+
+//Clases con metodos estaticos
+class Xmen{
+    static nombreDeClase = "Xmen";
+}
+console.log("atrib estatico" + Xmen.nombreDeClase);
+
+//Herencia
+class AvengerHeredado extends Avenger2{
+
+}
+let ah = new AvengerHeredado("Heredado");
+console.log(ah.nombre);
+
+//Herencia2
+class AvengerHeredado2 extends Avenger2{
+    edad:number=0;
+    constructor(nombre:string,edad:number){
+        super(nombre);
+        this.edad = edad;
+    }
+}
+let ah2 = new AvengerHeredado2("Heredado2",33);
+console.log(ah2.nombre + " " + ah2.edad);

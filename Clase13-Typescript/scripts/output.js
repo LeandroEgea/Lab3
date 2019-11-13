@@ -1,4 +1,14 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var mensaje;
 mensaje = 'Hola mundos';
 console.log(mensaje);
@@ -83,6 +93,66 @@ console.log(unMutante.nombre);
 var miFuncion;
 miFuncion = function (num1, num2) { return num1 + num2; };
 console.log(miFuncion(1, 2));
+//clases
+var Avenger2 = /** @class */ (function () {
+    function Avenger2(nombre) {
+        this.nombre = nombre;
+    }
+    return Avenger2;
+}());
+var av2 = new Avenger2("Hulk");
+console.log("Clase: " + av2.nombre);
+//Clase atrib privado
+var Avenger3 = /** @class */ (function () {
+    function Avenger3(nombre) {
+        var _this = this;
+        this._edad = 0;
+        this.mostrar = function () { return _this._nombre; };
+        this._nombre = nombre;
+    }
+    Object.defineProperty(Avenger3.prototype, "edad", {
+        get: function () { return this._edad; },
+        set: function (e) { this._edad = e; },
+        enumerable: true,
+        configurable: true
+    });
+    return Avenger3;
+}());
+var av3 = new Avenger3("Iron Man");
+console.log("Clases 2: " + av3.mostrar());
+av3.edad = 35;
+console.log("Clases 2: " + av3.edad);
+//Clases con metodos estaticos
+var Xmen = /** @class */ (function () {
+    function Xmen() {
+    }
+    Xmen.nombreDeClase = "Xmen";
+    return Xmen;
+}());
+console.log("atrib estatico" + Xmen.nombreDeClase);
+//Herencia
+var AvengerHeredado = /** @class */ (function (_super) {
+    __extends(AvengerHeredado, _super);
+    function AvengerHeredado() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return AvengerHeredado;
+}(Avenger2));
+var ah = new AvengerHeredado("Heredado");
+console.log(ah.nombre);
+//Herencia2
+var AvengerHeredado2 = /** @class */ (function (_super) {
+    __extends(AvengerHeredado2, _super);
+    function AvengerHeredado2(nombre, edad) {
+        var _this = _super.call(this, nombre) || this;
+        _this.edad = 0;
+        _this.edad = edad;
+        return _this;
+    }
+    return AvengerHeredado2;
+}(Avenger2));
+var ah2 = new AvengerHeredado2("Heredado2", 33);
+console.log(ah2.nombre + " " + ah2.edad);
 ///  <reference path="hello.ts"/>
 var mensaj;
 mensaj = 'Others';
