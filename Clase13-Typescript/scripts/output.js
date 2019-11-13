@@ -153,6 +153,23 @@ var AvengerHeredado2 = /** @class */ (function (_super) {
 }(Avenger2));
 var ah2 = new AvengerHeredado2("Heredado2", 33);
 console.log(ah2.nombre + " " + ah2.edad);
+//namespace
+var Funciones;
+(function (Funciones) {
+    function f1() {
+        console.log("Yo soy la f1");
+    }
+    Funciones.f1 = f1;
+    function f2() {
+        console.log("Yo soy la f2");
+    }
+    Funciones.f2 = f2;
+})(Funciones || (Funciones = {}));
+Funciones.f1();
+Funciones.f2();
+$(function () {
+    console.log("ready");
+});
 ///  <reference path="hello.ts"/>
 var mensaj;
 mensaj = 'Others';
