@@ -6,23 +6,19 @@ function crearTabla(array) {
     tabla.className = "table tabla table-bordered table-striped table-hover";;
     let cabecera = document.createElement("tr");
     cabecera.className = "thead-dark";
-    //Completando cabecera}
-    for (header in array[0]) {
 
+    for (header in array[0]) {
         if(checkType(header) == '0' && header != 'constructor')
         {
-
             let th = document.createElement("th");
             th.textContent = header;
             cabecera.appendChild(th);
         }
     }
-    //console.log(array);
     tbody.appendChild(cabecera)
     tabla.appendChild(tbody);
 
     for (i in array) {
-
         let fila = document.createElement("tr");
         fila.className = "table-primary";
         let objeto = array[i];
@@ -42,17 +38,14 @@ function crearTabla(array) {
     return tabla;
 }
 
-
+// Checks if the start of a word is in LowerCase or UpperCase
 function checkType(words) {
     words = String(words).trim();
     const regxs = {
-        "lower": /^[a-z0-9 ]+$/,
-        "upper": /^[A-Z0-9 ]+$/,
-        "upperLower": /^[A-Za-z0-9 ]+$/
+        "lower": /^[a-z]/,
+        "upper": /^[a-z]/,
     }
-
     if (regxs.lower.test(words)) return '0';
     if (regxs.upper.test(words)) return '1';
-    if (regxs.upperLower.test(words)) return '2';
     return -1;
 }
