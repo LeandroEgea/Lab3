@@ -1,4 +1,5 @@
 //TODO: margins
+//TODO: poner los radios en una row cuando son md
 //TODO: pasar el id a int
 //TODO: comportamiento raro de los checkobox cuando no hay legisladores
 //TODO: cuando todo ande, ver que se puede dejar sin reinicializar de estos (tabla, select y checkbox)
