@@ -1,11 +1,9 @@
-let arrayAnuncios;
+//TODO: pasar el id a int
+
 let primeraVez = true;
 let arrayLegisladores = [];
-$(function () {
-    inicializarManejadores();
-})
 
-function inicializarManejadores() {
+$(function () {
     $("#frm").submit(manejadorSubmit);
     $("#lblId").hide();
     $("#idLegislador").hide();
@@ -18,20 +16,15 @@ function inicializarManejadores() {
         let legislador = new Legislador(object.id, object.nombre, object.apellido, object.edad, object.email, object.sexo, object.tipo)
         arrayLegisladores.push(legislador);
     });
-    calcularEdad(arrayLegisladores);
-    calcularGenderMix(arrayLegisladores);
+    calcularInfo(arrayLegisladores);
     cargarGrilla(arrayLegisladores);
-}
+})
 
 function manejadorSubmit(e) {
     e.preventDefault();
     let nuevoLegislador = obtenerLegislador(e.target, false);
     arrayLegisladores.push(nuevoLegislador);
-    localStorage.setItem("Legisladores", JSON.stringify(arrayLegisladores));
-    cargarGrilla(arrayLegisladores);
-    reestablecerBoxes();
-    limpiarForm();
-
+    reestablecerPagina(arrayLegisladores);
 }
 
 function manejadorModificar(e) {
@@ -42,24 +35,17 @@ function manejadorModificar(e) {
             arrayLegisladores.splice(i, 1, legislador);
         }
     }
-    localStorage.setItem("Legisladores", JSON.stringify(arrayLegisladores));
-    reestablecerBoxes()
-    limpiarForm();
-    cargarGrilla(arrayLegisladores);
+    reestablecerPagina(arrayLegisladores);
 }
 
 function manejadorBorrar() {
-
     let id = $("#idLegislador").val();
     for (i = 0; i < arrayLegisladores.length; i++) {
         if (arrayLegisladores[i].id === id) {
             arrayLegisladores.splice(i, 1);
         }
     }
-    localStorage.setItem("Legisladores", JSON.stringify(arrayLegisladores));
-    reestablecerBoxes()
-    limpiarForm();
-    cargarGrilla(arrayLegisladores);
+    reestablecerPagina(arrayLegisladores);
 }
 
 function cargarGrilla(array) {
@@ -77,6 +63,7 @@ function cargarGrilla(array) {
     let tds = $("td");
     tds.on("click", setValues);
 }
+
 function filtrarDatos() {
     let opciones = ['id'];
     //Aca recorro uno por uno todos los checkbox
@@ -92,13 +79,11 @@ function filtrarDatos() {
     if (tipo !== "Todos") {
         datosFiltradosSel = datosFiltradosSel.filter(obj => obj.tipo === tipo);
     }
-    calcularEdad(datosFiltradosSel);
-    calcularGenderMix(datosFiltradosSel);
+    calcularInfo(datosFiltradosSel);
     
     //Filtro por el valor de los checkbox
     let datosFiltradosChk = datosFiltradosSel.map(function (dato) {
         let retorno = new Object();
-        
         opciones.forEach(elemento => {
             retorno[elemento] = dato[elemento];
         });
@@ -207,7 +192,7 @@ function limpiarForm() {
     $("#txtNombre").val("");
     $("#txtApellido").val("");
     $("#txtEmail").val("");
-    $("#numEdad").val("18");
+    $("#numEdad").val("0");
     $('#sexoMasculino').prop('checked', true);
     $('#tipoDiputado').prop('checked', true);
 
@@ -216,25 +201,36 @@ function limpiarForm() {
     $("#btnBorrar").hide();
     $("#frm").off('submit', manejadorModificar);
     $("#frm").submit(manejadorSubmit);
-
 }
 
-function reestablecerBoxes()
-{
+function reestablecerPagina(arr) {
+    localStorage.setItem("Legisladores", JSON.stringify(arr));
+    reestablecerBoxes();
+    limpiarForm();
+    calcularInfo(arr);
+    cargarGrilla(arr);
+}
+
+function reestablecerBoxes() {
     let checkboxs = $('.box input');
     checkboxs.prop("checked", true);
+}
+
+function calcularInfo(arr) {
+    calcularEdad(arr);
+    calcularGenderMix(arr);
 }
 
 function calcularEdad(arr) {
     let promedio = arr.map(obj => parseInt(obj.edad))
         .reduce((prev, curr) => (prev + curr))/arr.length;
-    //$('#txtInfoEdad').val(promedio.toFixed(2));
+    $('#txtInfoEdad').val(promedio.toFixed(2));
 }
 
 function calcularGenderMix(arr) {
     let cantidadLegisladores = arr.length;
     let cantidadMujeres = arr.filter(obj => obj.sexo === "Femenino").length;
     let genderMix = (cantidadMujeres/cantidadLegisladores) * 100;
-    $('#txtInfoEdad').val(genderMix.toFixed(2));
+    $('#genderMix').val(genderMix.toFixed(2));
 }
 
