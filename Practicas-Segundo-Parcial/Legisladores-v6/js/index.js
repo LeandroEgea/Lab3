@@ -1,4 +1,5 @@
 //TODO: pasar el id a int
+//TODO: comportamiento raro de los checkobox cuando no hay legisladores
 //TODO: cuando todo ande, ver que se puede dejar sin reinicializar de estos (tabla, select y checkbox)
 
 let primeraVez = true;
@@ -206,8 +207,6 @@ function limpiarForm() {
     $('#tipoDiputado').prop('checked', true);
 
     $("#btnCrearModificar").text("Crear");
-
-    $("#selTipo").val("Todos");
     $("#btnLimpiar").hide();
     $("#btnBorrar").hide();
     $("#frm").off('submit', manejadorModificar);
