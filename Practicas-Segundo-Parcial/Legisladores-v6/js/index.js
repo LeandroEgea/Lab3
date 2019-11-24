@@ -1,4 +1,5 @@
 //TODO: pasar el id a int
+//TODO: cuando todo ande, ver que se puede dejar sin reinicializar de estos (tabla, select y checkbox)
 
 let primeraVez = true;
 let arrayLegisladores = [];
@@ -183,7 +184,15 @@ function setValues(e) {
     $("#frm").off('submit', manejadorSubmit);
     $("#frm").submit(manejadorModificar);
     $("#btnLimpiar").show();
+}
 
+function reestablecerPagina(arr) {
+    localStorage.setItem("Legisladores", JSON.stringify(arr));
+    reestablecerBoxes();
+    cargarDatosSelect();
+    limpiarForm();
+    calcularInfo(arr);
+    cargarGrilla(arr);
 }
 
 function limpiarForm() {
@@ -197,18 +206,12 @@ function limpiarForm() {
     $('#tipoDiputado').prop('checked', true);
 
     $("#btnCrearModificar").text("Crear");
+
+    $("#selTipo").val("Todos");
     $("#btnLimpiar").hide();
     $("#btnBorrar").hide();
     $("#frm").off('submit', manejadorModificar);
     $("#frm").submit(manejadorSubmit);
-}
-
-function reestablecerPagina(arr) {
-    localStorage.setItem("Legisladores", JSON.stringify(arr));
-    reestablecerBoxes();
-    limpiarForm();
-    calcularInfo(arr);
-    cargarGrilla(arr);
 }
 
 function reestablecerBoxes() {
@@ -222,15 +225,25 @@ function calcularInfo(arr) {
 }
 
 function calcularEdad(arr) {
-    let promedio = arr.map(obj => parseInt(obj.edad))
-        .reduce((prev, curr) => (prev + curr))/arr.length;
+    let promedio;
+    let edades = arr.map(obj => parseInt(obj.edad));
+    if(edades.length > 0) {
+        promedio = edades.reduce((prev, curr) => (prev + curr))/arr.length;
+    } else {
+        promedio = 0;
+    }
     $('#txtInfoEdad').val(promedio.toFixed(2));
 }
 
 function calcularGenderMix(arr) {
+    let genderMix;
     let cantidadLegisladores = arr.length;
-    let cantidadMujeres = arr.filter(obj => obj.sexo === "Femenino").length;
-    let genderMix = (cantidadMujeres/cantidadLegisladores) * 100;
-    $('#genderMix').val(genderMix.toFixed(2));
+    if(cantidadLegisladores > 0) {
+        let cantidadMujeres = arr.filter(obj => obj.sexo === "Femenino").length;
+        genderMix = (cantidadMujeres/cantidadLegisladores) * 100;
+    } else {
+        genderMix = 0;
+    }
+    $('#genderMix').val(genderMix.toFixed(2) + " %");
 }
 

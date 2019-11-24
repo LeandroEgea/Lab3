@@ -2,10 +2,15 @@ let selTransaccion;
 let selBanios;
 
 $(function () {
-    selTipo = document.getElementById("selTipo");
-    cargarSelect(selTipo, obtenerTipo(arrayLegisladores));
+    selTipo = cargarDatosSelect();
     selTipo.addEventListener('change', filtrarDatos);
 });
+
+function cargarDatosSelect(){
+    selTipo = document.getElementById("selTipo");
+    cargarSelect(selTipo, obtenerTipo(arrayLegisladores));
+    return selTipo;
+}
 
 function obtenerTipo(arr) {
     return arr.map(obj => obj.tipo)
