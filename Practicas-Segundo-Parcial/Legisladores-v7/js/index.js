@@ -171,32 +171,35 @@ function reestablecerBoxes(arr) {
 }
 
 function calcularInfo(arr) {
-    calcularEdad(arr);
-    calcularGenderMix(arr);
+    let calculos = new Calculos();
+    calculos.calcularEdad(arr);
+    calculos.calcularGenderMix(arr);
+    //calcularEdad(arr);
+    //calcularGenderMix(arr);
 }
 
-function calcularEdad(arr) {
-    let promedio;
-    let edades = arr.map(obj => parseInt(obj.edad));
-    if (edades.length > 0) {
-        promedio = edades.reduce((prev, curr) => (prev + curr)) / arr.length;
-    } else {
-        promedio = 0;
-    }
-    $('#txtInfoEdad').val(promedio.toFixed(2));
-}
+// function calcularEdad(arr) {
+//     let promedio;
+//     let edades = arr.map(obj => parseInt(obj.edad));
+//     if (edades.length > 0) {
+//         promedio = edades.reduce((prev, curr) => (prev + curr)) / arr.length;
+//     } else {
+//         promedio = 0;
+//     }
+//     $('#txtInfoEdad').val(promedio.toFixed(2));
+// }
 
-function calcularGenderMix(arr) {
-    let genderMix;
-    let cantidadLegisladores = arr.length;
-    if (cantidadLegisladores > 0) {
-        let cantidadMujeres = arr.filter(obj => obj.sexo === "Femenino").length;
-        genderMix = (cantidadMujeres / cantidadLegisladores) * 100;
-    } else {
-        genderMix = 0;
-    }
-    $('#genderMix').val(genderMix.toFixed(2) + " %");
-}
+// function calcularGenderMix(arr) {
+//     let genderMix;
+//     let cantidadLegisladores = arr.length;
+//     if (cantidadLegisladores > 0) {
+//         let cantidadMujeres = arr.filter(obj => obj.sexo === "Femenino").length;
+//         genderMix = (cantidadMujeres / cantidadLegisladores) * 100;
+//     } else {
+//         genderMix = 0;
+//     }
+//     $('#genderMix').val(genderMix.toFixed(2) + " %");
+// }
 
 // function obtenerLegislador(frm, tieneId) {
 //     let nombre;

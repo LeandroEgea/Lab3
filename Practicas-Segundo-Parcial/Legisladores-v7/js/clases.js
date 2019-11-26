@@ -12,6 +12,34 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/// <reference path="ICalculos.ts" />
+var Calculos = /** @class */ (function () {
+    function Calculos() {
+    }
+    Calculos.prototype.calcularEdad = function (legisladores) {
+        var promedio;
+        var edades = legisladores.map(function (obj) { return obj.Edad; });
+        if (edades.length > 0) {
+            promedio = edades.reduce(function (prev, curr) { return (prev + curr); }) / legisladores.length;
+        }
+        else {
+            promedio = 0;
+        }
+        $('#txtInfoEdad').val(promedio.toFixed(2));
+    };
+    Calculos.prototype.calcularGenderMix = function (legisladores) {
+        var genderMix;
+        if (legisladores.length > 0) {
+            var cantidadMujeres = legisladores.filter(function (obj) { return obj.Sexo === "Femenino"; }).length;
+            genderMix = (cantidadMujeres / legisladores.length) * 100;
+        }
+        else {
+            genderMix = 0;
+        }
+        $('#genderMix').val(genderMix.toFixed(2) + " %");
+    };
+    return Calculos;
+}());
 var Persona = /** @class */ (function () {
     function Persona(id, nombre, apellido, edad, email, sexo) {
         this.id = id;
