@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+
+        <form id="frm" action="#">
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="idLegislador" id="lblId" class="form-check-label">ID</label>
+                    <input type="number" class="form-control" name="idLegislador" id="idLegislador" disabled>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="nombre" id="lblTxtNombre" class="form-check-label">Nombre</label>
+                    <input type="text" value="prueba" class="form-control" name="nombre" id="txtNombre" required placeholder="Nombre">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="apellido" id="lblTxtApellido" class="form-check-label">Apellido</label>
+                    <input type="text" value="prueba" class="form-control" name="apellido" id="txtApellido" required
+                        placeholder="Apellido">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="email" id="lblTxtEmail" class="form-check-label">Email</label>
+                    <input type="email" value="prueba@email.com" class="form-control" name="email" id="txtEmail" required placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="edad" id="lblNumEdad" class="form-check-label">Edad</label>
+                    <input type="number" class="form-control" value="18" name="edad" id="numEdad" required
+                        placeholder="Edad">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="radioTipo" id="lblRadioSexo" class="form-check-label">Sexo</label>
+                    <div class="form-check offset-md-1">
+                        <input type="radio" class="form-check-input" value="Masculino" name="radioSexo" id="sexoMasculino" checked>Masculino
+                    </div>
+
+                    <div class="form-check offset-md-1">
+                        <input type="radio" class="form-check-input" value="Femenino" name="radioSexo" id="sexoFemenino">Femenino
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="radioTipo" id="lblRadioTipo" class="form-check-label">Tipo</label>
+                    <div class="form-check offset-md-1">
+                        <input type="radio" class="form-check-input" value="Diputado" name="radioTipo" id="tipoDiputado"
+                            checked>Diputado
+                    </div>
+
+                    <div class="form-check offset-md-1">
+                        <input type="radio" class="form-check-input" value="Senador" name="radioTipo"
+                            id="tipoSenador">Senador
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 offset-sm-1">
+                    <button type="submit" class="btn btn-primary btn-block" id="btnCrearModificar">Crear</button>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-danger btn-block" id="btnBorrar">Borrar</button>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-secondary btn-block" id="btnLimpiar">Limpiar</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-sm">
+                <label for="selTipo">Tipo</label>
+                <select class="form-control col-sm-8 col-md-6" name="selTipo" id="selTipo"></select>
+            </div>
+            <div class="col-sm">
+                <label for="infoEdad">Promedio de Edad</label>
+                <input type="text" class="form-control col-sm-8 col-md-6" name="infoEdad" id="txtInfoEdad" disabled>
+            </div>
+            <div class="col-sm">
+                <label for="genderMix">Gender Mix</label>
+                <input type="text" class="form-control col-sm-8 col-md-6" name="genderMix" id="genderMix" disabled>
+            </div>
+        </div>
+
+        <div class="form-group row" id="divChk"></div>
+        <div class="row">
+            <div id="divTabla" class="col-12"></div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./js/clases.js"></script>
+    <script src="./js/tableHelper.js"></script>
+    <script src="./js/checkBoxHelper.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/selectHelper.js"></script>
+
+</body>
+
+</html>
