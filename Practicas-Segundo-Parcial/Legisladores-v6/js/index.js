@@ -1,11 +1,19 @@
 //TODO: margins
 //TODO: poner los radios en una row cuando son md
 //TODO: pasar el id a int
-//TODO: comportamiento raro de los checkobox cuando no hay legisladores
 //TODO: cuando todo ande, ver que se puede dejar sin reinicializar de estos (tabla, select y checkbox)
 
 let primeraVez = true;
-let arrayLegisladores = [];
+
+function obtenerArrayLegisladores(){
+    let arrayLegisladores = [];
+    arrayObjetos = JSON.parse(localStorage.getItem("Legisladores"));
+    arrayObjetos.forEach(object => {
+        let legislador = new Legislador(object.id, object.nombre, object.apellido, object.edad, object.email, object.sexo, object.tipo)
+        arrayLegisladores.push(legislador);
+    });
+    return arrayLegisladores;
+}
 
 $(function () {
     $("#frm").submit(manejadorSubmit);
@@ -15,16 +23,13 @@ $(function () {
     $("#btnBorrar").hide();
     $("#btnBorrar").click(manejadorBorrar);
     $("#btnLimpiar").click(limpiarForm);
-    arrayObjetos = JSON.parse(localStorage.getItem("Legisladores"));
-    arrayObjetos.forEach(object => {
-        let legislador = new Legislador(object.id, object.nombre, object.apellido, object.edad, object.email, object.sexo, object.tipo)
-        arrayLegisladores.push(legislador);
-    });
+    let arrayLegisladores = obtenerArrayLegisladores();
     calcularInfo(arrayLegisladores);
     cargarGrilla(arrayLegisladores);
 })
 
 function manejadorSubmit(e) {
+    let arrayLegisladores = obtenerArrayLegisladores();
     e.preventDefault();
     let nuevoLegislador = obtenerLegislador(e.target, false);
     arrayLegisladores.push(nuevoLegislador);
@@ -32,6 +37,7 @@ function manejadorSubmit(e) {
 }
 
 function manejadorModificar(e) {
+    let arrayLegisladores = obtenerArrayLegisladores();
     e.preventDefault();
     let legislador = obtenerLegislador(e.target, true);
     for (i = 0; i < arrayLegisladores.length; i++) {
@@ -43,6 +49,7 @@ function manejadorModificar(e) {
 }
 
 function manejadorBorrar() {
+    let arrayLegisladores = obtenerArrayLegisladores();
     let id = $("#idLegislador").val();
     for (i = 0; i < arrayLegisladores.length; i++) {
         if (arrayLegisladores[i].id === id) {
@@ -52,23 +59,25 @@ function manejadorBorrar() {
     reestablecerPagina(arrayLegisladores);
 }
 
-function cargarGrilla(array) {
+function cargarGrilla(arrayFiltrados) {
     let tabla = $("#divTabla");
     let checkbox = $("divChk");
     tabla.html('');
     $('tbody', tabla);
 
     if (primeraVez === true) {
+        let arrayLegisladores = obtenerArrayLegisladores();
         crearBoxes(arrayLegisladores, "divChk");
         primeraVez = false;
     }
     checkbox.html('');
-    tabla.append(crearTabla(array));
+    tabla.append(crearTabla(arrayFiltrados));
     let tds = $("td");
     tds.on("click", setValues);
 }
 
 function filtrarDatos() {
+    let arrayLegisladores = obtenerArrayLegisladores();
     let opciones = ['id'];
     //Aca recorro uno por uno todos los checkbox
     $('.box input:checked').each(function () {
@@ -154,6 +163,7 @@ function obtenerLegislador(frm, tieneId) {
 }
 
 function setValues(e) {
+    let arrayLegisladores = obtenerArrayLegisladores();
     let tr = e.target.parentElement;
     let nodos = tr.childNodes;
     let dato = arrayLegisladores.filter(obj => obj.id === nodos[0].innerText);
@@ -191,7 +201,7 @@ function setValues(e) {
 
 function reestablecerPagina(arr) {
     localStorage.setItem("Legisladores", JSON.stringify(arr));
-    reestablecerBoxes();
+    reestablecerBoxes(arr);
     cargarDatosSelect();
     limpiarForm();
     calcularInfo(arr);
@@ -215,9 +225,12 @@ function limpiarForm() {
     $("#frm").submit(manejadorSubmit);
 }
 
-function reestablecerBoxes() {
+function reestablecerBoxes(arr) {
     let checkboxs = $('.box input');
     checkboxs.prop("checked", true);
+    if(checkboxs.length == 0){
+        crearBoxes(arr, "divChk");
+    }
 }
 
 function calcularInfo(arr) {

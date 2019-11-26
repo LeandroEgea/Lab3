@@ -2,12 +2,13 @@ let selTransaccion;
 let selBanios;
 
 $(function () {
-    selTipo = cargarDatosSelect();
+    let selTipo = cargarDatosSelect();
     selTipo.addEventListener('change', filtrarDatos);
 });
 
 function cargarDatosSelect(){
-    selTipo = document.getElementById("selTipo");
+    let arrayLegisladores = obtenerArrayLegisladores();
+    let selTipo = document.getElementById("selTipo");
     cargarSelect(selTipo, obtenerTipo(arrayLegisladores));
     return selTipo;
 }
