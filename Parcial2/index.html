@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+    
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+
+        <form id="frm" action="#">
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="idBienes" id="lblId" class="form-check-label">ID</label>
+                    <input type="number" class="form-control" name="idBienes" id="idBienes" disabled>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="titulo" id="lblTxtTitulo" class="form-check-label">Titulo</label>
+                    <input type="text" class="form-control" name="titulo" id="txtTitulo" required placeholder="Titulo">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="radioTransaccion" id="lblRadioTransaccion" class="form-check-label">Transaccion</label>
+                    <div class="form-check offset-md-1">
+                        <input type="radio" class="form-check-input" value="Venta" name="radioTransaccion" id="transVenta" checked>Venta
+                    </div>
+            
+                    <div class="form-check offset-md-1">
+                        <input type="radio" class="form-check-input" value="Alquiler" name="radioTransaccion" id="transAlquiler">Alquiler
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="descripcion" id="lblTxtDescripcion" class="form-check-label">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="txtDescripcion" required
+                    placeholder="Descripcion">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <label for="precio" id="lblNumPrecio" class="form-check-label">Precio</label>
+                    <input type="number" class="form-control" min="1" step="0.01" name="precio" id="numPrecio" required
+                        placeholder="Precio">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                    <div class="col-md-10">
+                        <label for="banos" id="lblNumBanos" class="form-check-label">Baños</label>
+                        <input type="number" class="form-control" min="1" name="banos" id="numBanos" required
+                            placeholder="Banos">
+                    </div>
+            </div>
+                
+            <div class="form-group row">
+                    <div class="col-md-10">
+                        <label for="autos" id="lblNumAutos" class="form-check-label">Autos</label>
+                        <input type="number" class="form-control" min="0" name="autos" id="numAutos" required
+                            placeholder="Autos">
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                    <div class="col-md-10">
+                        <label for="dormitorios" id="lblNumDormitorios" class="form-check-label">Dormitorios</label>
+                        <input type="number" class="form-control" min="1" name="dormitorios" id="numDormitorios" required
+                            placeholder="Dormitorios">
+                    </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 offset-sm-1">
+                    <button type="button" class="btn btn-danger btn-block" id="btnBorrar">Borrar</button>
+                </div>
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-primary btn-block" id="btnCrearModificar">Crear</button>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-secondary btn-block" id="btnLimpiar">Limpiar</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-sm">
+                <label for="selTransaccion">Tipo</label>
+                <select class="form-control col-sm-8 col-md-6" name="selTransaccion" id="selTransaccion"></select>
+            </div>
+            <div class="col-sm">
+                <label for="infoPrecio">Promedio de Precios</label>
+                <input type="text" class="form-control col-sm-8 col-md-6" name="infoPrecio" id="txtInfoPrecio" disabled>
+            </div>
+        </div>
+
+        <div class="form-group row" id="divChk"></div>
+        <div class="row">
+            <div id="divTabla" class="col-12"></div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./js/clases.js"></script>
+    <script src="./js/tableHelper.js"></script>
+    <script src="./js/checkBoxHelper.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/selectHelper.js"></script>
+
+</body>
+
+</html>
